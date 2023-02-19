@@ -88,7 +88,7 @@ func (store *Store) TransferTx(ctx context.Context, arg TransferTxParams) (Trans
 			return err
 		}
 
-		// prevent deadlock by always upddating the account with smaller ID first
+		// prevent deadlock when 2 concurrent txs are updating the same set of account IDs by always updating the account with smaller ID first
 		if arg.FromAccountID < arg.ToAccountID {
 			result.FromAccount, result.ToAccount, err = addBalance(ctx, q, arg.FromAccountID, -arg.Amount, arg.ToAccountID, arg.Amount)
 		} else {
