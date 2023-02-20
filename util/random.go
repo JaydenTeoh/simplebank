@@ -42,7 +42,7 @@ func RandomBalance() int64 {
 
 // RandomCurrency generates a random currency symbol
 func RandomCurrency() string {
-	currencies := []string{"EUR", "USD", "SGD", "HKD", "RMB", "GBP"}
+	currencies := []string{EUR, USD, SGD, HKD, RMB, GBP}
 	n := len(currencies)
 	return currencies[rand.Intn(n)]
 }
